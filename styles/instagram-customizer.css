@@ -1,0 +1,77 @@
+/* Estilos personalizados para os embeds do Instagram */
+
+/* Mais seletores abrangentes para encontrar todos os elementos a serem traduzidos */
+/* Botões de "View more on Instagram" para "Ver mais no Instagram" */
+.instagram-media [role="button"],
+.instagram-media button,
+.instagram-media .sqdOP,
+.instagram-media ._4EzTm {
+    background-color: #000 !important;
+    color: white !important;
+    border-radius: 4px !important;
+    font-weight: bold !important;
+}
+
+/* Esconder todos os textos em inglês dentro dos botões */
+.instagram-media [role="button"] div,
+.instagram-media [role="button"] span,
+.instagram-media button div, 
+.instagram-media button span,
+.instagram-media .sqdOP div,
+.instagram-media .sqdOP span,
+.instagram-media ._4EzTm div,
+.instagram-media ._4EzTm span {
+    font-size: 0 !important;
+}
+
+/* Inserir texto em português */
+.instagram-media [role="button"]::after,
+.instagram-media button::after,
+.instagram-media .sqdOP::after,
+.instagram-media ._4EzTm::after {
+    content: "Ver mais no Instagram";
+    color: white !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    display: inline-block !important;
+}
+
+/* "View Profile" para "Ver Perfil" */
+.instagram-media a[href*="instagram.com/"] span,
+.instagram-media a[href*="instagram.com/"] div {
+    font-size: 0 !important;
+}
+
+.instagram-media a[href*="instagram.com/"]:not([href*="?img_index"]):not([role="button"])::after {
+    content: "Ver perfil";
+    font-size: 14px !important;
+    color: #262626;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    display: inline-block !important;
+}
+
+/* Traduzir os timestamps */
+.instagram-media time span {
+    font-size: 0 !important;
+}
+
+.instagram-media time::after {
+    content: "Ver mais";
+    font-size: 14px !important;
+    color: #8e8e8e;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    display: inline-block !important;
+}
+
+/* Garantir que os cards tenham altura e largura adequadas */
+.instagram-item {
+    min-height: 400px !important;
+}
+
+/* Melhorar a renderização em dispositivos móveis */
+@media screen and (max-width: 768px) {
+    .instagram-item {
+        min-height: 350px !important;
+    }
+}

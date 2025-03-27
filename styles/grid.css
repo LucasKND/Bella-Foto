@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F5F5F5;
+    overflow-x: hidden;
+}
+
+.grid-section {
+    padding: 0;
+    background-color: #F5F5F5;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Layout horizontal com rolagem infinita */
+.grid-container {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20px;
+    padding: 40px 0;
+    width: max-content;
+    animation: scroll-infinite 60s linear infinite;
+}
+
+.infinite-grid-wrapper {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+    padding: 0;
+}
+
+.grid-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    flex: 0 0 auto;
+}
+
+/* Tamanhos padrão para os itens do grid */
+.grid-item {
+    width: 300px;
+    height: 400px;
+    margin-right: 10px;
+}
+
+.grid-item.medium {
+    width: 350px;
+    height: 400px;
+}
+
+.grid-item.large {
+    width: 450px;
+    height: 400px;
+}
+
+.grid-item.small {
+    width: 250px;
+    height: 400px;
+}
+
+/* Animação para rolagem horizontal infinita */
+@keyframes scroll-infinite {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Indicadores de rolagem nas laterais */
+.infinite-grid-wrapper::before,
+.infinite-grid-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 80px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.infinite-grid-wrapper::before {
+    left: 0;
+    background: linear-gradient(to right, rgba(245,245,245,0.8), transparent);
+}
+
+.infinite-grid-wrapper::after {
+    right: 0;
+    background: linear-gradient(to left, rgba(245,245,245,0.8), transparent);
+}
+
